@@ -8,10 +8,65 @@
 
 </head>
 <body>
-
+  <nav>
+    <ul>
+        <li><a href="flight.html">Flight Management Computer</a></li>
+        <li><a href="Placeholder">Placeholder</a></li>
+        <li><a href="Placeholder">Placeholder</a></li>
+        <li><a href="Placeholder">Placeholder</a></li>
+    </ul>
+</nav>
 <style>
-  body {
-    background-color:#ff0000;
+ body {
+    background-color: #ff0000;
+    font-family: "Tahoma";
+    font-size: x-large;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px 25px;
+    text-align: center;
+    transition: 0.3s;
+    border: 5px solid black;
+}
+
+nav ul li:hover {
+    background-color: #a76d6d;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+nav ul li a:visited,
+nav ul li a:active,
+nav ul li a:hover {
+    color: black;
 }
   </style>
 </body>
