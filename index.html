@@ -1,47 +1,95 @@
+<link rel="stylesheet" href="styles.css">
+<script src="index.js" defer></script>
 
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Air Canada Flight Management</title>
-  <link rel="icon" type="image/png" href="https://aircanada.virtualairline.xyz/static/icons/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Management Computer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+        .fmc-panel {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 360px;
+        }
+        .screen {
+            background: black;
+            color: #33ff33;
+            font-size: 14px;
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .btn {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:active {
+            background: #777;
+        }
+    </style>
 </head>
 <body>
+    <div class="fmc-panel">
+        <div class="screen" id="fmc-output">Enter ICAO codes</div>
+        <div class="buttons" id="fmc-buttons"></div>
+    </div>
+    <script>
+        const buttonsLayout = [
+            "INIT REF", "RTE", "DEP ARR", "ALTN", "VNAV", "EXEC",
+            "FIX", "LEGS", "HOLD", "FMC COMM", "PROG", "",
+            "MENU", "NAV RAD", "", "", "", "",
+            "PREV PAGE", "NEXT PAGE", "A", "B", "C", "D",
+            "1", "2", "3", "E", "F", "G",
+            "4", "5", "6", "H", "I", "J",
+            "7", "8", "9", "K", "L", "M",
+            "CLR", "0", "SP", "DEL", "N", "O"
+        ];
 
-<style>
-  body {
-    background-color:#ff0000;
-  font-family: "Kanit", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-  #start{
-    padding:2%;
-    border-radius:20px;
-    font-size:20px;
-    background-color:#B87B79;
-    border: 25px inset white;
-   display: inline-block;
-  margin: auto;
-  font-family: "Tahoma";
-  font-size:x-large;
-  font-style: bold;
-  font-weight:bold;
-    text-align:center;
-    text-transform: uppercase;
-  }
-  .welcome{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  }
-  </style>
-  <div class="welcome">
-    <button id="start" onclick="window.location.href='https://google.com';">Welcome to Air Canada Flight Management Computer. Tap here to continue.</button>
-  </div>
+        const buttonsContainer = document.getElementById("fmc-buttons");
+        buttonsLayout.forEach(label => {
+            const btn = document.createElement("button");
+            btn.className = "btn";
+            btn.innerText = label;
+            btn.onclick = () => handleButtonPress(label);
+            buttonsContainer.appendChild(btn);
+        });
+
+        function handleButtonPress(label) {
+            const output = document.getElementById("fmc-output");
+            if (label === "CLR") {
+                output.innerText = "";
+            } else {
+                output.innerText += label + " ";
+            }
+        }
+    </script>
 </body>
 </html>
