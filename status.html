@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Air Canada Flight Management</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://aircanada.virtualairline.xyz/static/icons/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+<h1>My Flight Controls</h1>
+<style>
+    body {
+      background-color: #ff0000;
+      font-family: "Kanit", serif;
+      font-weight: 400;
+      font-style: normal;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+  
+    #start, p {
+      padding: 2%;
+      border-radius: 20px;
+      font-size: 20px;
+      background-color: white;
+      border: 20px solid black;
+      display: inline-block;
+      font-family: "Tahoma";
+      font-size: x-large;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      transition: background-color 0.5s ease-in-out; /* Smooth transition */
+      margin-bottom: 20px; /* Space between the flight details */
+    }
+  
+    #start:hover {
+      background-color: #a76d6d;
+      cursor: pointer;
+    }
+  
+    h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  
+    p {
+      padding: 1%;
+      text-align: center;
+    }
+  </style>
+  
+  <div class="welcome">
+    <button id="start" onclick="window.location.href='information.html';">File Flight Information</button>
+  </div>
+  <body>
+    <h1>Flight Details</h1>
+    <p><strong>Departure ICAO: </strong> <span id="departure-display"></span></p>
+    <p><strong>Arrival ICAO: </strong> <span id="arrival-display"></span></p>
+    <p><strong>Flight Type: </strong> <span id="flight-type-display"></span></p>
+    <p><strong>Flight Time: </strong> <span id="flight-time-display"></span></p>
+  
+    <script>
+      // Retrieve data from localStorage
+      const departure = localStorage.getItem("departure");
+      const arrival = localStorage.getItem("arrival");
+      const flightType = localStorage.getItem("flightType");
+      const flightTime = localStorage.getItem("flightTime");
+  
+
+      document.getElementById("departure-display").textContent = departure;
+      document.getElementById("arrival-display").textContent = arrival;
+      document.getElementById("flight-type-display").textContent = flightType;
+      document.getElementById("flight-time-display").textContent = flightTime;
+    </script>
+  </body>
+</body>
+</html>

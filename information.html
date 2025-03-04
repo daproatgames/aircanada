@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Air Canada Flight Management</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="https://aircanada.virtualairline.xyz/static/icons/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>My Flight Details</h1>
+<style>
+  body {
+    background-color: #ff0000;
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+  }
+
+  #start {
+    padding: 2%;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: white;
+    border: 20px solid black;
+    display: inline-block;
+    margin: auto;
+    font-family: "Tahoma", sans-serif;
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease-in-out; /* Smooth transition */
+  }
+
+  #start:hover {
+    background-color: #a76d6d;
+    cursor: pointer;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  form {
+    background-color: #ff0000;
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 600px; /* Maximum width for the form */
+    margin: 20px auto; /* Center the form */
+    padding: 20px;
+    border-radius: 10px; /* Optional, for rounded corners */
+  }
+
+  label,
+  input,
+  select {
+    display: block;
+    margin: 10px 0;
+    font-family: "Kanit", serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+    font-family: "Kanit", serif;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    border: 10px solid black;
+    transition: background-color 0.5s ease-in-out; /* Smooth transition */
+  }
+
+  button[type="submit"]:hover {
+  background-color: #a76d6d;
+  cursor: pointer;
+  }
+</style>
+
+<form id="flightForm">
+    <!-- Departure ICAO Input -->
+    <label for="departure">Enter Departing ICAO</label>
+    <input type="text" id="departure" placeholder="Enter ICAO code (e.g., KJFK)" required>
+
+    <!-- Arrival ICAO Input -->
+    <label for="arrival">Enter Arrival ICAO</label>
+    <input type="text" id="arrival" placeholder="Enter ICAO code (e.g., EGLL)" required>
+
+    <label for="flight-type">Flight Type</label>
+    <select id="flight-type" required>
+        <option value="" disabled selected>Select flight type</option>
+        <option value="Cargo">Cargo</option>
+        <option value="Jetz">Jetz</option>
+        <option value="Express">Express</option>
+        <option value="Rouge">Rouge</option>
+        <option value="Main">Main</option>
+    </select>
+    <!-- Arrival ICAO Input -->
+    <label for="flight-time">Enter Flight Time</label>
+    <input type="text" id="flight-time" placeholder="Enter flight time" required>
+    <!-- Publish Button inside the form -->
+    <button type="submit">Publish</button>
+</form>
+<script>
+    document.getElementById("flightForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevents the form from submitting
+
+      // Get the values from the form inputs
+      const departure = document.getElementById("departure").value;
+      const arrival = document.getElementById("arrival").value;
+      const flightType = document.getElementById("flight-type").value;
+      const flightTime = document.getElementById("flight-time").value;
+      // Store the data in localStorage
+      localStorage.setItem("departure", departure);
+      localStorage.setItem("arrival", arrival);
+      localStorage.setItem("flightType", flightType);
+      localStorage.setItem("flightTime", flightTime);
+
+      // Redirect to the status page
+      window.location.href = 'status.html';
+  });
+  </script>
+</body>
+</html>
