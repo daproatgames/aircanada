@@ -99,18 +99,21 @@
   background-color: #a76d6d;
   cursor: pointer;
   }
+  input, select{
+    border:6px solid black;
+  }
 </style>
 
 <form id="flightForm">
     <!-- Departure ICAO Input -->
-    <label for="departure">Enter Departing ICAO</label>
+    <label for="departure">Enter Departing ICAO:</label>
     <input type="text" id="departure" placeholder="Enter ICAO code (e.g., KJFK)" required>
 
     <!-- Arrival ICAO Input -->
-    <label for="arrival">Enter Arrival ICAO</label>
+    <label for="arrival">Enter Arrival ICAO:</label>
     <input type="text" id="arrival" placeholder="Enter ICAO code (e.g., EGLL)" required>
 
-    <label for="flight-type">Flight Type</label>
+    <label for="flight-type">Flight Type:</label>
     <select id="flight-type" required>
         <option value="" disabled selected>Select flight type</option>
         <option value="Cargo">Cargo</option>
@@ -120,10 +123,10 @@
         <option value="Main">Main</option>
     </select>
     <!-- Arrival ICAO Input -->
-    <label for="flight-time">Enter Flight Time</label>
-    <input type="text" id="flight-time" placeholder="Enter flight time" required>
+    <label for="flight-time">Enter Flight Time:</label>
+    <input type="text" id="flight-time" placeholder="Enter flight time (e.g., 15 Hours 4 Minutes)" required>
     <!-- Publish Button inside the form -->
-    <button type="submit">Publish</button>
+    <button type="submit">Publish Flight Information</button>
 </form>
 <script>
     document.getElementById("flightForm").addEventListener("submit", function(event) {
