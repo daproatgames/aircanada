@@ -87,26 +87,33 @@
 
   </div>
   <body>
-    <h1>Passenger Audio:</h2>
-        <audio id="safetySound">
-            <source src="safety_sound.mp3" type="audio/mp3">
-        </audio>
-    
-        <!-- Button to Play Audio -->
-        <button id="start" onclick="playAudio()">Play Passenger Audio</button>
-        <button id="start" onclick="stopAudio()">Stop Passenger Audio</button>
-        <script>
-            function playAudio() {
-                var audio = document.getElementById("safetySound");
-                audio.play();
-            }
-        
-            function stopAudio() {
-                var audio = document.getElementById("safetySound"); // Get the audio element
-                audio.pause(); // Pause the audio
-                audio.currentTime = 0; // Reset to the beginning
-            }
-        </script>
+
+
+    <audio id="safetySound">
+        <source src="safety_sound.mp3" type="audio/mp3">
+    </audio>
+    <audio id="boardingMusic">
+        <source src="boarding_music.mp3" type="audio/mp3">
+    </audio>
+    <h1>Safety Audio:</h1>
+    <button id="start" onclick="playAudio('safetySound')">Play Saftey Audio</button>
+    <button id="start" onclick="stopAudio('safetySound')">Stop Saftey Audio</button>
+    <h1>Boarding Music:</h1>
+    <button id="start" onclick="playAudio('boardingMusic')">Play Boarding Music</button>
+    <button id="start" onclick="stopAudio('boardingMusic')">Stop Boarding Music</button>
+
+    <script>
+        function playAudio(audioId) {
+            var audio = document.getElementById(audioId);
+            audio.play();
+        }
+
+        function stopAudio(audioId) {
+            var audio = document.getElementById(audioId);
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    </script>
       <button id="home" onclick="window.location.href='homepage.html';">Go Back to Homepage</button>
 </body>
   </body>
